@@ -2,8 +2,9 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
-    {{ msg }} {{ showMsg() }} <br>
-    <button @click="goPage('/ref')">refの使い方</button>
+    {{ msg }} {{ showMsg() }} <br />
+    <button @click="goPage('/ref')">refの使い方</button> <br />
+    <button @click="goPage('/reactive')">reactiveの使い方</button> <br />
   </div>
 </template>
 
