@@ -2,16 +2,18 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
-    {{ msg }} {{ showMsg() }}
+    {{ msg }} {{ showMsg() }} <br>
+    <button @click="goPage('/ref')">refの使い方</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { defineComponent, ref } from "vue";
+import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { useRouter } from "vue-router";
 
 export default defineComponent({
-  name: 'HomeView',
+  name: "HomeView",
   components: {
     HelloWorld,
   },
@@ -29,14 +31,19 @@ export default defineComponent({
 
   // vue3 setup
   setup() {
-    let msg = ref("hello world")
+    const router = useRouter();
+    let msg = ref("hello world");
+    const goPage = (url: string) => {
+      router.push(url);
+    };
     function showMsg() {
-      return "こんにちは"
+      return "こんにちは";
     }
     return {
       msg,
-      showMsg
-    }
-  }
+      showMsg,
+      goPage,
+    };
+  },
 });
 </script>
